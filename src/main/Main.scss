@@ -5,3 +5,51 @@
     background-color: cadetblue;
     margin: 10px;
 }
+.redButton{
+    background-color: lightcoral;
+    color: rgb(124, 3, 3);
+}
+.blueButton{
+    background-color:lightskyblue;
+    color:blue;
+}
+.yellowButton{
+    background-color: burlywood;
+    color: yellow;
+}
+.purpleButton{
+background-color: rgb(182, 139, 204);
+color: blueviolet;
+}
+.greenButton{
+background-color: chartreuse;
+color: green;
+}
+button{
+    border-radius: 45%;
+    width: 150px;
+    height: 70px;
+    float: left;
+    // display: block;
+    margin: 0px;
+   
+}
+.hidden{
+    visibility: hidden;
+    width: auto;
+    height: 70px;
+    overflow: hidden;
+}
+.form {
+    margin: 0 auto;
+    padding: 100px 30px 0;
+  
+    @media (min-width: 800px) {
+      max-width: 60%;
+    }
+  }
+  
+  .input-range {
+    margin-bottom: 160px;
+  }
+  
