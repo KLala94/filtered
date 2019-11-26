@@ -1,22 +1,22 @@
 const data = [
 {    id : 1,
-    colors : "red",
-    price : 5
+    color : "red",
+    price : 500
 },
 {    id : 2,
-    colors : "green",
-    price : 2
+    color : "green",
+    price : 200
 },
 {    id : 3,
-    colors : "blue",
-    price : 7
+    color : "blue",
+    price : 700
 },{
     id : 4,
-    colors : "yellow",
-    price : 8
+    color : "yellow",
+    price : 800
 },
 {    id : 5,
-    colors : "purple",
-    price : 10
+    color : "purple",
+    price : 1000
 }]
 export default data
