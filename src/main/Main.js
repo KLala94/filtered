@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './Main.scss';
 import data from './data';
+import { Range } from 'react-range';
 class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
       ScarfData: data,
       displayCategory: 'red',
-      value: 1000
+      value: 1000,
+      values: [100]
     }
   this.changeColor = this.changeColor.bind(this);
   this.changeRange = this.changeRange.bind(this);
@@ -22,7 +24,7 @@ changeColor(color){
 
 changeRange(price){
   this.setState({ 
-    value : price
+    values : price
   })
 }
   render(){
@@ -30,7 +32,7 @@ changeRange(price){
     const constantData = data.filter(
       ( item) =>
         this.state.displayCategory == item.color || this.state.displayCategory === ''
-           ).filter((item) =>this.state.value >= item.price
+           ).filter((item) =>this.state.values >= item.price
            )
            .map(item => <div key={item.id} item={item} className="items">The color is: {item.color}
       <p>The price is: {item.price}</p></div>)
@@ -44,14 +46,37 @@ changeRange(price){
          <button className="purpleButton" onClick={() => this.changeColor('purple')}>Purple</button>
          <form>
           <button className="greenButton" onClick={() => this.changeColor('green')}>Green</button>
-          <input type="range" min='100' max='1000'
-          name='value'
-          defaultValue="800"
-          // value={this.state.value}
-          onChange={value => this.changeRange()}
-          
-          // onChangeComplete={value => console.log(value)}
+          <Range
+        step={0.1}
+        min={100}
+        max={1000}
+        values={this.state.values}
+        onChange={values => this.changeRange(values)}
+        renderTrack={({ props, children }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '6px',
+              width: '40%',
+              backgroundColor: '#ccc'
+            }}
+          >
+            {children}
+          </div>
+        )}
+        renderThumb={({ props }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '42px',
+              width: '42px',
+              backgroundColor: '#999'
+            }}
           />
+        )}
+      />
           </form>
           <div className="hidden">this is hidden</div>
      {constantData}
