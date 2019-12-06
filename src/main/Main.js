@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import './Main.scss';
 import data from './data';
 import { Range } from 'react-range';
+import { relative } from 'path';
 class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
       ScarfData: data,
-      displayCategory: 'red',
+      displayCategory: '',
       value: 1000,
-      values: [100]
+      values: [1000]
     }
   this.changeColor = this.changeColor.bind(this);
   this.changeRange = this.changeRange.bind(this);
@@ -44,7 +45,6 @@ changeRange(price){
          <button className="blueButton" onClick={() => this.changeColor('blue')}>Blue</button>
          <button className="yellowButton" onClick={() => this.changeColor('yellow')}>Yellow</button>
          <button className="purpleButton" onClick={() => this.changeColor('purple')}>Purple</button>
-         <form>
           <button className="greenButton" onClick={() => this.changeColor('green')}>Green</button>
           <Range
         step={0.1}
@@ -59,7 +59,9 @@ changeRange(price){
               ...props.style,
               height: '6px',
               width: '40%',
-              backgroundColor: '#ccc'
+              backgroundColor: '#ccc',
+              position: "relative",
+              float: "right"
             }}
           >
             {children}
@@ -77,7 +79,6 @@ changeRange(price){
           />
         )}
       />
-          </form>
           <div className="hidden">this is hidden</div>
      {constantData}
       </div>
